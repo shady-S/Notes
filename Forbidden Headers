@@ -1,0 +1,29 @@
+Forbidden HTTP Headers
+
+Accept-Charset
+Accept-Encoding
+Access-Control-Request-Headers
+Access-Control-Request-Method
+Connection
+Content-Length
+Cookie
+Cookie2
+Date
+DNT
+Expect
+Feature-Policy
+Host
+Keep-Alive
+Origin
+Proxy-
+Sec-
+Referer
+TE
+Trailer
+Transfer-Encoding
+Upgrade
+Via
+
+The above headers are forbidden meaning these cannot be explicitly set by attacker and any attempt for the same will be denied by browser implicitly.
+
+#Names starting with `Sec-` are reserved for creating new headers safe from APIs using Fetch that grant developers control over headers, such as XMLHttpRequest.
