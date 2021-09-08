@@ -27,3 +27,5 @@ Via
 The above headers are forbidden meaning these cannot be explicitly set by attacker and any attempt for the same will be denied by browser implicitly.
 
 #Names starting with `Sec-` are reserved for creating new headers safe from APIs using Fetch that grant developers control over headers, such as XMLHttpRequest.
+
+Reliability on these headers comes from the fact that they cannot be altered programmatically (using JavaScript with an XSS vulnerability) as they fall under forbidden headers list, meaning that only the browser can set them
