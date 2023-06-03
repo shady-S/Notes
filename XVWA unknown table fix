@@ -1,0 +1,25 @@
+Fatal error: Uncaught mysqli_sql_exception: Unknown table 'xvwa.comments' in C:\xampp\htdocs\xvwa\setup\home.php:28 Stack trace: #0 C:\xampp\htdocs\xvwa\setup\home.php(28): mysqli->query('DROP TABLE comm...') #1 C:\xampp\htdocs\xvwa\setup\home.php(49): cleanup(Object(mysqli), '') #2 C:\xampp\htdocs\xvwa\setup\index.php(51): include('C:\\xampp\\htdocs...') #3 {main} thrown in C:\xampp\htdocs\xvwa\setup\home.php on line 28
+
+Fix this error by visiting \xvwa\setup\home.php
+
+Replace this code -- from line 24 - 30
+----------------------------------
+  // clean the database
+    $tables = array('comments','caffaine','users');
+    for($i=0;$i<count($tables);$i++){
+        $sql = 'DROP TABLE '. $tables[$i].';';
+        $sqlexec = $conn->query($sql);
+    }
+    // clean extra files
+  ----------------------------------------
+ Replace with 
+ -----------------------------------
+   // clean the database
+   $tables = array('comments', 'caffaine', 'users');
+    $sql = 'DROP TABLE IF EXISTS ' . implode(',', $tables);
+    $sqlexec = $conn->query($sql);
+    }
+    // clean extra files
+    
+    ------------------------
+    Remove extra } 
